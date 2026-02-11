@@ -1,65 +1,163 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  const buy = async () => {
+    setMsg(null);
+
+    if (!email || !email.includes("@")) {
+      setMsg("Ingresá un email válido para enviarte el pack.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // ✅ ESTA RUTA tiene que coincidir con tu carpeta:
+      // app/api/create-preferences/route.ts  ->  /api/create-preferences
+      const res = await fetch("/api/create-preferences", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setMsg(data?.error ?? "No se pudo iniciar el pago.");
+        return;
+      }
+
+      const url = data.init_point || data.sandbox_init_point;
+      if (!url) {
+        setMsg("No vino init_point desde Mercado Pago.");
+        return;
+      }
+
+      window.location.href = url;
+    } catch (e: any) {
+      setMsg(e?.message ?? "Error iniciando pago.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="container">
+      <section className="hero">
+        <div>
+          <div className="badge">⚡ Dark Anime Neon • PNG Pack para sublimado</div>
+          <h1 className="h1">FINAL BOSS PACK</h1>
+          <p className="sub">
+            Pack de imágenes .PNG listas para sublimado, estilo anime/neon.
+            Ideal para emprendedores, tiendas, y creadores que quieren diseños con impacto.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+          <div className="priceRow">
+            <div className="priceTag"><b>OFERTA IMPERDIBLE!!! $20.000 ARS</b></div>
+          </div>
+
+          {/* ✅ Solo agregamos esto: input email con estética compatible */}
+          <div style={{ marginTop: 14 }}>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Tu email para recibir el pack"
+              style={{
+                width: "min(520px, 100%)",
+                padding: "14px 14px",
+                borderRadius: 12,
+                border: "1px solid rgba(176, 38, 255, 0.35)",
+                background: "rgba(255,255,255,0.06)",
+                color: "#fff",
+                boxShadow: "0 0 22px rgba(176, 38, 255, 0.20)",
+                outline: "none",
+              }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            {msg && (
+              <div style={{ marginTop: 10, color: "#ff4d9d", textShadow: "0 0 12px rgba(255, 0, 93, 0.25)" }}>
+                {msg}
+              </div>
+            )}
+          </div>
+
+          <div className="actions">
+            <button className="btn" onClick={buy} disabled={loading}>
+              {loading ? "Abriendo Mercado Pago..." : "Comprar pack"}
+            </button>
+            <button
+              className="btn btnSecondary"
+              onClick={() => window.scrollTo({ top: 99999, behavior: "smooth" })}
+            >
+              Ver previews
+            </button>
+          </div>
+
+          <div className="kpis">
+            <div className="kpi">
+              <b>+150 PNG</b>
+              <span>Listas para imprimir</span>
+            </div>
+            <div className="kpi">
+              <b>Alta calidad</b>
+              <span>Ideal sublimado</span>
+            </div>
+            <div className="kpi">
+              <b>Uso comercial</b>
+              <span>Para tu emprendimiento</span>
+            </div>
+          </div>
         </div>
-      </main>
+
+        <div className="card">
+          <div className="h2" style={{ marginBottom: 10 }}>Incluye</div>
+          <ul className="list">
+            <li className="li"><span className="dot" /> Personajes estilo anime/neon</li>
+            <li className="li"><span className="dot" /> Logos / emblemas / símbolos</li>
+            <li className="li"><span className="dot" /> Diseños listos para remera</li>
+            <li className="li"><span className="dot" /> Fondos y efectos neon</li>
+          </ul>
+          <div style={{ marginTop: 14, opacity: 0.9 }}>
+            ⚠️ El pack se entrega por email después del pago.
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <h2 className="h2">Previews</h2>
+        <div className="gallery">
+          <img className="thumb" src="/gallery/1.png" alt="preview 1" />
+          <img className="thumb" src="/gallery/2.png" alt="preview 2" />
+          <img className="thumb" src="/gallery/3.png" alt="preview 3" />
+          <img className="thumb" src="/gallery/4.png" alt="preview 4" />
+        </div>
+        </section>
+
+      <section className="section">
+        <h2 className="h2">FAQ</h2>
+        <div className="faq">
+          <div className="card">
+            <div className="q">¿Cómo recibo el pack?</div>
+            <div className="a">Después del pago, te llega un email con un link de acceso.</div>
+          </div>
+          <div className="card">
+            <div className="q">¿Sirve para sublimado?</div>
+            <div className="a">Sí, están preparados en PNG y alta calidad para impresión.</div>
+          </div>
+          <div className="card">
+            <div className="q">¿Puedo usarlo comercialmente?</div>
+            <div className="a">Sí, orientado a emprendedores. (Luego ponemos términos claros.)</div>
+          </div>
+        </div>
+      </section>
+
+      <div className="footer">
+        © {new Date().getFullYear()} Final Boss Pack · Hecho en Argentina 🇦🇷
+      </div>
     </div>
   );
 }
