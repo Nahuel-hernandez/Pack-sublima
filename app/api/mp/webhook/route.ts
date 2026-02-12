@@ -30,10 +30,10 @@ async function sendEmail(to: string) {
         <h2>🎉🎉 Gracias por tu compra! 🎉🎉</h2>
         <p>Acá tenés los links de descarga:</p>
         <ul>
-          <li><a href="${drive1}">Drive 1 (Pack)</a></li>
-          <li><a href="${drive2}">Drive 2 (Cursos)</a></li>
+          <li><a href="${drive1}">Drive 1 para descargar</a></li>
+          <li><a href="${drive2}">Drive 2 para descargar</a></li>
         </ul>
-        <p>Si necesitás ayuda, respondé este email.</p>
+        <p>Desde final boss te deseamos que tu emprendimiento crezca y crezca</p>
       </div>
     `,
   });
