@@ -9,36 +9,42 @@ export async function POST(req: Request) {
     if (!baseUrl) return new Response("Falta NEXT_PUBLIC_BASE_URL", { status: 500 });
 
     const { email } = await req.json();
+
     if (!email || !String(email).includes("@")) {
       return new Response(JSON.stringify({ error: "Email inválido" }), { status: 400 });
     }
 
+    const title = process.env.PRODUCT_TITLE ?? "FINAL BOSS PACK";
+    const price = Number(process.env.PRODUCT_PRICE_ARS ?? 20000);
+
     const client = new MercadoPagoConfig({ accessToken });
     const preference = new Preference(client);
-    console.log("USANDO ROUTE NUEVO ✅", { baseUrl, success: `${baseUrl}/success` });
-
 
     const result = await preference.create({
       body: {
         items: [
           {
             id: "final-boss-pack",
-            title: "FINAL BOSS PACK",
+            title,
             quantity: 1,
             currency_id: "ARS",
-            unit_price: 20000,
+            unit_price: price,
           },
         ],
+
         payer: { email: String(email) },
 
-        // ✅ PLURAL: back_urls
-       back_urls: {
-  success: "http://localhost:3000/success",
-  failure: "http://localhost:3000/failure",
-  pending: "http://localhost:3000/pending",
-},
+        back_urls: {
+          success: `${baseUrl}/success`,
+          failure: `${baseUrl}/failure`,
+          pending: `${baseUrl}/pending`,
+        },
 
+        // ✅ opcional: si lo querés activo
+        // auto_return: "approved",
 
+        // ✅ esto conecta con TU webhook en Vercel
+        notification_url: `${baseUrl}/api/mp/webhook`,
       },
     });
 
@@ -47,7 +53,8 @@ export async function POST(req: Request) {
       sandbox_init_point: result.sandbox_init_point,
     });
   } catch (err: any) {
-    console.error("MP create preference error:", err);
+    console.error("CREATE PREFERENCE ERROR:", err);
     return new Response(JSON.stringify({ error: err?.message ?? "error" }), { status: 500 });
   }
 }
+
