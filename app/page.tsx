@@ -100,8 +100,8 @@ export default function Home() {
 
           <div className="kpis">
             <div className="kpi">
-              <b>+150 PNG</b>
-              <span>Listas para imprimir</span>
+              <b>+1000 diseños</b>
+              <span>Listos para imprimir</span>
             </div>
             <div className="kpi">
               <b>Alta calidad</b>
@@ -109,7 +109,7 @@ export default function Home() {
             </div>
             <div className="kpi">
               <b>Uso comercial</b>
-              <span>Para tu emprendimiento</span>
+              <span>Para que tu emprendimiento despegue </span>
             </div>
           </div>
         </div>
@@ -118,9 +118,11 @@ export default function Home() {
           <div className="h2" style={{ marginBottom: 10 }}>Incluye</div>
           <ul className="list">
             <li className="li"><span className="dot" /> MEGA PACK ANIME INCLUIDO</li>
-            <li className="li"><span className="dot" /> Bandas , cantantes y MAS!!</li>
+            <li className="li"><span className="dot" /> Bandas , cantantes y mockups!!</li>
             <li className="li"><span className="dot" /> Diseños listos para remera, almohadones , tazas, ropa de bebe, etc</li>
-            <li className="li"><span className="dot" /> CURSO GRATUITO DE SUBLIMADO INCLUIDO</li>
+            <li className="li"><span className="dot" /> Mockups para que veas y publiques en tu pagina como quedarian en ya impresos. </li>
+            <li className="li"><span className="dot" /> CURSO GRATUITO DE SUBLIMADO INCLUIDO JUNTO A RECURSOS GRAFICOS</li>
+
           </ul>
           <div style={{ marginTop: 14, opacity: 0.9 }}>
             ⚠️ El pack se entrega por email después del pago.

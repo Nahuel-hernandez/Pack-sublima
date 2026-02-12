@@ -27,7 +27,7 @@ async function sendEmail(to: string) {
     subject: `✅ Acceso a tu compra: ${title}`,
     html: `
       <div style="font-family:Arial,sans-serif;line-height:1.5">
-        <h2>Gracias por tu compra! 🎉</h2>
+        <h2>🎉🎉 Gracias por tu compra! 🎉🎉</h2>
         <p>Acá tenés los links de descarga:</p>
         <ul>
           <li><a href="${drive1}">Drive 1 (Pack)</a></li>
