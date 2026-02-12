@@ -50,11 +50,12 @@ export default function Home() {
     <div className="container">
       <section className="hero">
         <div>
-          <div className="badge">⚡ Dark Anime Neon • PNG Pack para sublimado</div>
+          <div className="badge">⚡  Mega pack para empezar a emprender ⚡  </div>
           <h1 className="h1">FINAL BOSS PACK</h1>
           <p className="sub">
-            Pack de imágenes .PNG listas para sublimado, estilo anime/neon.
-            Ideal para emprendedores, tiendas, y creadores que quieren diseños con impacto.
+            Pack de imágenes ,PNG,pdf y muchos formatos mas, listas para imprimir o editar a gusto.
+            Ideal para emprendedores, tiendas, y creadores que quieren diseños con impacto. 
+            Y no solo remeras, tambien tazas , almohadones y MAS !!!
           </p>
 
           <div className="priceRow">
@@ -116,10 +117,10 @@ export default function Home() {
         <div className="card">
           <div className="h2" style={{ marginBottom: 10 }}>Incluye</div>
           <ul className="list">
-            <li className="li"><span className="dot" /> Personajes estilo anime/neon</li>
-            <li className="li"><span className="dot" /> Logos / emblemas / símbolos</li>
-            <li className="li"><span className="dot" /> Diseños listos para remera</li>
-            <li className="li"><span className="dot" /> Fondos y efectos neon</li>
+            <li className="li"><span className="dot" /> MEGA PACK ANIME INCLUIDO</li>
+            <li className="li"><span className="dot" /> Bandas , cantantes y MAS!!</li>
+            <li className="li"><span className="dot" /> Diseños listos para remera, almohadones , tazas, ropa de bebe, etc</li>
+            <li className="li"><span className="dot" /> CURSO GRATUITO DE SUBLIMADO INCLUIDO</li>
           </ul>
           <div style={{ marginTop: 14, opacity: 0.9 }}>
             ⚠️ El pack se entrega por email después del pago.
@@ -150,7 +151,7 @@ export default function Home() {
           </div>
           <div className="card">
             <div className="q">¿Puedo usarlo comercialmente?</div>
-            <div className="a">Sí, orientado a emprendedores. (Luego ponemos términos claros.)</div>
+            <div className="a">Sí, orientado a emprendedores.</div>
           </div>
         </div>
       </section>
