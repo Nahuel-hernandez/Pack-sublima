@@ -14,9 +14,6 @@ export default function SuccessPage() {
             <a className="btn" href="/">
               Volver al inicio
             </a>
-            <a className="btn btnSecondary" href="mailto:finalboss.gg17@gmail.com">
-              Contactar soporte
-            </a>
           </div>
 
           <div className="card" style={{ marginTop: 18 }}>
@@ -34,9 +31,6 @@ export default function SuccessPage() {
           <p className="sub" style={{ marginTop: 0 }}>
             Descargá el pack desde el email y empezá a imprimir/sublimar.
           </p>
-          <div style={{ opacity: 0.9 }}>
-            Si necesitás ayuda con formatos o impresión, escribinos por soporte.
-          </div>
         </div>
       </section>
     </div>

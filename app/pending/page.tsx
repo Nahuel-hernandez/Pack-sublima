@@ -14,9 +14,6 @@ export default function PendingPage() {
             <a className="btn" href="/">
               Volver al inicio
             </a>
-            <a className="btn btnSecondary" href="mailto:finalboss.gg17@gmail.com">
-              Contactar soporte
-            </a>
           </div>
 
           <div className="card" style={{ marginTop: 18 }}>

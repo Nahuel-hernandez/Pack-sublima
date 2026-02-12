@@ -13,9 +13,6 @@ export default function FailurePage() {
             <a className="btn" href="/">
               Reintentar compra
             </a>
-            <a className="btn btnSecondary" href="mailto:finalboss.gg17@gmail.com">
-              Contactar soporte
-            </a>
           </div>
 
           <div className="card" style={{ marginTop: 18 }}>
@@ -25,16 +22,6 @@ export default function FailurePage() {
               <li className="li"><span className="dot" /> Datos incorrectos o verificación pendiente.</li>
               <li className="li"><span className="dot" /> Cancelación del pago.</li>
             </ul>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="h2" style={{ marginBottom: 10 }}>¿Querés que te ayudemos?</div>
-          <p className="sub" style={{ marginTop: 0 }}>
-            Escribinos y te damos una mano para completar la compra.
-          </p>
-          <div style={{ opacity: 0.9 }}>
-            (Sugerencia: contanos qué método de pago intentaste usar.)
           </div>
         </div>
       </section>
