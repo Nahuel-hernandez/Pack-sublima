@@ -137,6 +137,11 @@ export default function Home() {
           <img className="thumb" src="/gallery/2.png" alt="preview 2" />
           <img className="thumb" src="/gallery/3.png" alt="preview 3" />
           <img className="thumb" src="/gallery/4.png" alt="preview 4" />
+           <img className="thumb" src="/gallery/5.png" alt="preview 5" />
+          <img className="thumb" src="/gallery/6.png" alt="preview 6" />
+          <img className="thumb" src="/gallery/7.png" alt="preview 7" />
+          <img className="thumb" src="/gallery/8.png" alt="preview 8" />
+          <img className="thumb" src="/gallery/9.png" alt="preview 9" />
         </div>
         </section>
 
