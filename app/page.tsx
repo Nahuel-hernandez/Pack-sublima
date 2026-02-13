@@ -118,7 +118,6 @@ export default function Home() {
           <div className="h2" style={{ marginBottom: 10 }}>Incluye</div>
           <ul className="list">
             <li className="li"><span className="dot" /> MEGA PACK ANIME INCLUIDO</li>
-            <li className="li"><span className="dot" /> Bandas , cantantes y mockups!!</li>
             <li className="li"><span className="dot" /> Diseños listos para remera, almohadones , tazas, ropa de bebe, etc</li>
             <li className="li"><span className="dot" /> Mockups para que veas y publiques en tu pagina como quedarian en ya impresos. </li>
             <li className="li"><span className="dot" /> CURSO GRATUITO DE SUBLIMADO INCLUIDO JUNTO A RECURSOS GRAFICOS</li>
