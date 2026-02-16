@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     }
 
     const title = process.env.PRODUCT_TITLE ?? "FINAL BOSS PACK";
-    const price = Number(process.env.PRODUCT_PRICE_ARS ?? 20000);
+    const price = Number(process.env.PRODUCT_PRICE_ARS ?? 7000);
 
     const client = new MercadoPagoConfig({ accessToken });
     const preference = new Preference(client);

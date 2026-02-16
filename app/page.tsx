@@ -59,7 +59,7 @@ export default function Home() {
           </p>
 
           <div className="priceRow">
-            <div className="priceTag"><b>OFERTA IMPERDIBLE!!! $20.000 ARS</b></div>
+            <div className="priceTag"><b>OFERTA IMPERDIBLE!!! $7.000 ARS</b></div>
           </div>
 
           {/* ✅ Solo agregamos esto: input email con estética compatible */}
