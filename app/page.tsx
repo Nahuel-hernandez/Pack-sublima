@@ -100,7 +100,7 @@ export default function Home() {
 
           <div className="kpis">
             <div className="kpi">
-              <b>+1000 diseños</b>
+              <b>+2500 diseños</b>
               <span>Listos para imprimir</span>
             </div>
             <div className="kpi">
